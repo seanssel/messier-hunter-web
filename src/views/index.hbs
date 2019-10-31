@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css" media="screen,projection">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#2d3748" />
+</head>
+
+<body class="bg-red-900 text-red-300 antialiased">
+  {{!-- Main navbar --}}
+  <header
+    class="text-red-100 bg-red-800 shadow-md sm:flex sm:justify-between sm:items-center sm:px-4  w-full fixed z-40"
+    id="main-nav">
+    <div class="flex items-center justify-between px-4 py-4 sm:p-0">
+      <div class="uppercase text-red-200 text-xl">Messier<strong class="font-black tracking-wider">Hunter</strong>
+      </div>
+      <div class="sm:hidden">
+        <button class="block hover:text-red-200 focus:text-red-200 focus:outline-none" id="menu-button" type="button">
+          <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path fill-rule="evenodd"
+              d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
+            </path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    {{!-- Navbar dropdown  --}}
+    <ul class="hidden sm:flex px-2 py-2 pb-4 sm:mt-2 text-lg" id="nav-menu">
+      <li>
+        <input type="checkbox" name="nebulae" id="nebulae" class="type-select hidden" checked>
+        <label for="nebulae" class="filter-label sm:ml-2 sm:mt-0">
+          Nebulae</label>
+      </li>
+      <li>
+        <input type="checkbox" name="cluster" id="cluster" class="type-select hidden" checked>
+        <label for="cluster" class="filter-label sm:ml-2 sm:mt-0">
+
+          Cluster</label>
+      </li>
+      <li>
+        <input type="checkbox" name="galaxy" id="galaxy" class="type-select hidden" checked>
+        <label for="galaxy" id="filter-galaxy" class="filter-label sm:ml-2 sm:mt-0">
+          Galaxy</label>
+      </li>
+      <li>
+        <input type="checkbox" name="misc" id="misc" class="type-select hidden" checked>
+        <label for="misc" class="filter-label sm:ml-2 sm:mt-0">
+          Misc</label>
+      </li>
+    </ul>
+  </header>
+
+  {{!-- Messier object cards --}}
+  <div class="pt-20 grid md:grid-columns-4 sm:grid-columns-2" id="mobject-container">
+    {{#each mobjects}}
+      <div class="card-main modal-open grid-item {{this.messier}} {{{acronym this.object}}}">
+        {{!-- <img class="lazyload w-full shadow" data-src="/images/mobjects/thumb/webp/{{this.messier}}.webp"
+        src="/images/mobjects/thumb/webp/placeholder.webp" alt="{{this.messier}}"> --}}
+        <img class="w-full shadow" src="/images/mobjects/thumb/jpg/s-{{this.messier}}.jpg" alt="{{this.messier}}">
+        <div class="p-4">
+          <div class="flex items-baseline">
+            <span class="card-data-top" title="{{this.object}}">
+              {{{acronym this.object}}}
+              {{#if (and this.object this.const)}} &bull;
+              {{/if}} {{this.const}}
+            </span>
+          </div>
+          <h4 class="text-red-200 mt-4 font-bold text-2xl leading-tight
+                       tracking-wider uppercase leading">{{this.messier}}
+          </h4>
+          <div class="card-data-main">
+            <span class="text-xs" title="magnitude">Mag: </span>
+            {{{this.mag}}}
+          </div>
+          <div class="card-data-main">
+            <span class="text-xs" title="distance">Dist: </span>
+            {{{dist_abbrev this.distance}}}
+            {{!-- <span class="card-data-label">ly</span> --}}
+          </div>
+          <div class="pt-4">
+            {{#if this.ngc}}
+              <span class="card-data-bottom">
+                {{this.ngc}}</span>
+            {{/if}}
+            <span class="card-data-bottom">
+              RA: {{this.ra}}</span>
+            <span class="card-data-bottom">
+              DE: {{this.dec}}</span>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  {{!-- Information modal --}}
+  <div
+    class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
+    <div class="modal-overlay absolute w-full h-full bg-black opacity-50"></div>
+    <div class="modal-container bg-red-800 w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+      {{!-- Close button --}}
+      <div
+        class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+        <svg class="fill-current text-red-200" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+          viewBox="0 0 18 18">
+          <path
+            d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+          </path>
+        </svg>
+        <span class="text-sm">(Esc)</span>
+      </div>
+      {{!-- Content --}}
+      <div class="modal-content py-4 text-left px-6">
+        {{!-- Title --}}
+        <div class="flex justify-between items-center pb-3">
+          <p class="modal-name text-2xl font-bold"></p>
+          <div class="modal-close cursor-pointer z-50">
+            <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+              viewBox="0 0 18 18">
+              <path
+                d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+              </path>
+            </svg>
+          </div>
+        </div>
+        {{!-- Extract --}}
+        <p class="modal-extract"></p>
+      </div>
+    </div>
+  </div>
+
+  <button id="goTop" class="btn-top shadow-lg rounded-full">
+    <svg class="arrow up" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      viewBox="5 0 50 80" xml:space="preserve">
+      <polyline fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"
+        points="0.375, 35.375 28.375, 0.375 58.67, 35.375 " />
+    </svg>
+  </button>
+
+  {{!-- JS --}}
+  <script src="js/jquery-3.4.1.min.js"></script>
+  {{!-- <script src="js/lazyload.js"></script> --}}
+  <script src="js/extracts.js"></script>
+  <script src="js/main.js"></script>
+
+</body>

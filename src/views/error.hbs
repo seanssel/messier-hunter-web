@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{title}}</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css" media="screen,projection">
+</head>
+
+<body class="bg-gray-900 text-gray-300 antialiased">
+  {{!-- Main navbar --}}
+  <header
+    class="text-gray-100 bg-gray-800 shadow-md sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 w-full fixed z-50"
+    id="main-nav">
+    <div class="flex items-center justify-between px-4 py-3 sm:p-0">
+      <div class="text-bold tracking-wide">{{error}}</div>
+      <div class="sm:hidden">
+        <button class="block hover:text-white focus:text-white focus:outline-none" id="menu-button" type="button"><svg
+            class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+            <path fill-rule="evenodd"
+              d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z">
+            </path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    {{!-- Navbar dropdown  --}}
+    <ul class="hidden sm:flex px-2 pb-2 sm:mt-2" id="nav-menu">
+      <li><a class="block font-semibold rounded hover:bg-gray-700 px-2" href="/">Home</a></li>
+    </ul>
+
+  </header>
+
+  {{!-- Messier object cards --}}
+  <div>
+    <div class="ml-2 text-gray-200 text-xs font-semibold tracking-wide pt-32">
+      {{message}}
+      <br>
+      {{error.stack}}
+    </div>
+  </div>
+
+  {{!-- JS --}}
+  <script src="js/main.js"></script>
+
+</body>
