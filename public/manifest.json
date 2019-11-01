@@ -1,8 +1,31 @@
 {
-    "short_name": "MH",
+    "short_name": "Messier Hunter",
     "name": "Messier Hunter",
-    "start_url": "/index/html",
-    "background_color": "#2c1010",
+    "Description": "PWA for quickly looking up Messier Object information in the field.",
+    "start_url": "/",
     "display": "standalone",
-    "theme_color": "#4c2122"
+    "icons": [
+        {
+            "src": "images/icons/galaxy-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/galaxy-120x120.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/galaxy-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/galaxy-152x152.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#4c2122",
+    "background_color": "#2c1010"
 }

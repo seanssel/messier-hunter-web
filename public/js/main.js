@@ -1,6 +1,6 @@
 "use strict";
 
-let currObject = null; // The selected object
+let currObject = null;
 
 /**
  * Toggle information modal on object selection

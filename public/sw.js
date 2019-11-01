@@ -34,6 +34,26 @@ self.__precacheManifest = [
     "revision": "e7ccb0aa43af9fb7fae4d1bdc23a099b"
   },
   {
+    "url": "images/icons/favicon.ico",
+    "revision": "d306b000061005c225359b5e077deca3"
+  },
+  {
+    "url": "images/icons/galaxy-120x120.png",
+    "revision": "1c01ea9cd8cbd8abc38e2f204d023c5b"
+  },
+  {
+    "url": "images/icons/galaxy-144x144.png",
+    "revision": "9c3a03141162633fd3412ba10eda0be0"
+  },
+  {
+    "url": "images/icons/galaxy-152x152.png",
+    "revision": "8b4817d4b44d1d43994464347d8e262a"
+  },
+  {
+    "url": "images/icons/galaxy-32x32.png",
+    "revision": "12af94b6ed41325ae7060d8c971629a1"
+  },
+  {
     "url": "images/mobjects/thumb/jpg/s-m1.jpg",
     "revision": "ce7f2de49e103399c618fd6f7be55fe6"
   },
@@ -491,11 +511,11 @@ self.__precacheManifest = [
   },
   {
     "url": "js/main.js",
-    "revision": "b273f6e75c28362b1f2968d6ad994ae8"
+    "revision": "2fc6ac6454fe21b4f046466ad345728a"
   },
   {
     "url": "manifest.json",
-    "revision": "2b69a93962f25c34d8a4f2a5be00badf"
+    "revision": "98c65b5ccb39660a410947acaf52991b"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});

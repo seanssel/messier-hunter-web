@@ -26,6 +26,7 @@ body.modal-active {
   box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.418);
 }
 
+
 .filter-label {
   @apply block font-semibold rounded mt-1 px-2 cursor-pointer;
 }
