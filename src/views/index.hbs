@@ -58,9 +58,7 @@
   <div class="pt-20 grid md:grid-columns-4 sm:grid-columns-2" id="mobject-container">
     {{#each mobjects}}
       <div class="card-main modal-open grid-item {{this.messier}} {{{acronym this.object}}}">
-        {{!-- <img class="lazyload w-full shadow" data-src="/images/mobjects/thumb/webp/{{this.messier}}.webp"
-        src="/images/mobjects/thumb/webp/placeholder.webp" alt="{{this.messier}}"> --}}
-        <img class="w-full shadow" src="/images/mobjects/thumb/jpg/s-{{this.messier}}.jpg" alt="{{this.messier}}">
+        <img class="w-full shadow" width="400" height="350" src="/images/mobjects/thumb/jpg/s-{{this.messier}}.jpg" alt="{{this.messier}}">
         <div class="p-4">
           <div class="flex items-baseline">
             <span class="card-data-top" title="{{this.object}}">
