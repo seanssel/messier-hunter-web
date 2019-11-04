@@ -94,14 +94,19 @@ function init() {
       }
     };
 
-    // Scroll to top button
-    const goTop = document.getElementById("goTop");
-    goTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    })
+    // Scroll to top button behavior
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $("#goTop").fadeIn();
+        } else {
+            $("#goTop").fadeOut();
+        }
+    });
+
+    $("#goTop").click(function(){
+        $("html, body").animate({scrollTop : 0},800);
+        return false;
+    });
 
   });
 }
