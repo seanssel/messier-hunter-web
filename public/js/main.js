@@ -36,31 +36,31 @@ function init() {
     });
   }
 
-  // UI
-  $(document).ready(function() {
-    // Enable lazy-loading images
-    // lazyload();
+  // UI initialization
+  document.addEventListener("DOMContentLoaded", function() {
+    const navMenuCL = document.getElementById("nav-menu").classList;
 
-    // Setup navbar dropdown menu
-    $("#menu-button").click(() => $("#nav-menu").toggleClass("hidden"));
+    // Toggle navbar dropdown menu
+    document.getElementById("menu-button").addEventListener("click", function() {
+      navMenuCL.toggle("hidden");
+    });
 
-    // Setup object filtering
     const filters = {
-      "#cluster": $(".GC, .OC"),
-      "#nebulae": $(".EN, .RN, .PN"),
-      "#galaxy": $(".G"),
-      "#misc": $(".SR, .Ds")
+      "cluster": document.querySelectorAll(".GC, .OC"),
+      "nebulae": document.querySelectorAll(".EN, .RN, .PN"),
+      "galaxy": document.querySelectorAll(".G"),
+      "misc": document.querySelectorAll(".SR, .Ds")
     };
 
-    $.each(filters, (id, elems) => {
-      $(id).change(() => {
-        if ($(id).prop("checked")) {
-          elems.fadeIn(300);
-        } else {
-          elems.fadeOut(300);
-        }
+    for (const id in filters) {
+      const filter = document.getElementById(id);
+      filter.addEventListener("change", () => {
+          Array.from(filters[id]).forEach(e => e.classList.toggle("fadein"));
+          Array.from(filters[id]).forEach(e => e.classList.toggle("fadeout"));
       });
-    });
+    }
+
+
 
     // Setup information modals
     let openmodal = document.querySelectorAll(".modal-open");
@@ -95,17 +95,19 @@ function init() {
     };
 
     // Scroll to top button behavior
-    $(window).scroll(function(){
-        if ($(this).scrollTop() > 100) {
-            $("#goTop").fadeIn();
-        } else {
-            $("#goTop").fadeOut();
-        }
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 100) {
+        $("#goTop").fadeIn();
+      } else {
+        $("#goTop").fadeOut();
+      }
     });
 
-    $("#goTop").click(function(){
-        $("html, body").animate({scrollTop : 0},800);
-        return false;
+    $("#goTop").click(function() {
+      $("html, body").animate({
+        scrollTop: 0
+      }, 800);
+      return false;
     });
 
   });
