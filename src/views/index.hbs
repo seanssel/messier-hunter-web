@@ -59,7 +59,7 @@
   {{!-- Messier object cards --}}
   <div class="pt-20 grid md:grid-columns-4 sm:grid-columns-2" id="mobject-container">
     {{#each mobjects}}
-      <div class="card-main modal-open grid-item fadein {{this.messier}} {{{acronym this.object}}}">
+      <div class="card-main modal-open grid-item {{this.messier}} {{{acronym this.object}}}">
         <img class="w-full shadow" width="400" height="350" src="/images/mobjects/thumb/jpg/s-{{this.messier}}.jpg" alt="{{this.messier}}">
         <div class="p-4">
           <div class="flex items-baseline">
@@ -100,7 +100,7 @@
   <div
     class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
     <div class="modal-overlay absolute w-full h-full bg-black opacity-50"></div>
-    <div class="modal-container bg-red-800 w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+    <div class="modal-container bg-red-800 w-11/12 rounded shadow-lg z-50 overflow-y-auto">
       {{!-- Close button --}}
       <div
         class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
@@ -127,12 +127,12 @@
           </div>
         </div>
         {{!-- Extract --}}
-        <p class="modal-extract"></p>
+        <p class="modal-extract text-lg"></p>
       </div>
     </div>
   </div>
 
-  <button id="goTop" class="btn-top shadow-lg rounded-full focus:outline-none hidden">
+  <button id="go-top" class="btn-top shadow-lg rounded-full focus:outline-none hidden">
     <svg class="arrow up" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
       viewBox="5 0 50 80" xml:space="preserve">
       <polyline fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"
@@ -141,8 +141,6 @@
   </button>
 
   {{!-- JS --}}
-  <script src="js/jquery-3.4.1.min.js"></script>
-  {{!-- <script src="js/lazyload.js"></script> --}}
   <script src="js/extracts.js"></script>
   <script src="js/main.js"></script>
 

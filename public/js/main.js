@@ -1,5 +1,7 @@
 "use strict";
 
+const TOP_OFFSET = 400; // vertical pixel offset for scroll-to-top button fade
+
 let currObject = null;
 
 /**
@@ -38,11 +40,12 @@ function init() {
 
   // UI initialization
   document.addEventListener("DOMContentLoaded", function() {
-    const navMenuCL = document.getElementById("nav-menu").classList;
+    const navMenu = document.getElementById("nav-menu");
+    const goTop = document.getElementById("go-top");
 
     // Toggle navbar dropdown menu
     document.getElementById("menu-button").addEventListener("click", function() {
-      navMenuCL.toggle("hidden");
+      navMenu.classList.toggle("hidden");
     });
 
     const filters = {
@@ -55,22 +58,20 @@ function init() {
     for (const id in filters) {
       const filter = document.getElementById(id);
       filter.addEventListener("change", () => {
-          Array.from(filters[id]).forEach(e => e.classList.toggle("fadein"));
-          Array.from(filters[id]).forEach(e => e.classList.toggle("fadeout"));
+        filters[id].forEach(e => e.classList.toggle("inline-block"));
+        filters[id].forEach(e => e.classList.toggle("hidden"));
       });
     }
-
-
 
     // Setup information modals
     let openmodal = document.querySelectorAll(".modal-open");
-    for (let i = 0; i < openmodal.length; i++) {
-      openmodal[i].addEventListener("click", function(event) {
-        currObject = openmodal[i].classList[3];
+    openmodal.forEach(m => {
+      m.addEventListener("click", (event) => {
+        currObject = m.classList[3];
         event.preventDefault();
         toggleModal();
       });
-    }
+    });
 
     const overlay = document.querySelector(".modal-overlay");
     overlay.addEventListener("click", toggleModal);
@@ -95,21 +96,23 @@ function init() {
     };
 
     // Scroll to top button behavior
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 100) {
-        $("#goTop").fadeIn();
-      } else {
-        $("#goTop").fadeOut();
+    window.onscroll = () => {
+      if (window.scrollY >= TOP_OFFSET && goTop.classList.contains("hidden")) {
+        goTop.classList.toggle("hidden");
+        goTop.classList.toggle("inline-block");
+      } else if (window.scrollY < TOP_OFFSET) {
+        goTop.classList.add("hidden");
       }
+    };
+
+    goTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     });
 
-    $("#goTop").click(function() {
-      $("html, body").animate({
-        scrollTop: 0
-      }, 800);
-      return false;
-    });
-
+    // end DOMContentLoaded
   });
 }
 
