@@ -8,56 +8,53 @@
   src: url("../fonts/noto-sans-v9-latin-regular.woff")
 }
 
+/* Object filter buttons */
 #nav-menu li {
   animation: slide-down 0.2s ease-in-out;
 }
 
-body.modal-active {
-  overflow-x: hidden;
-  overflow-y: visible !important;
-}
-
-.grid-item {
-  animation: slide-down 0.4s ease-in-out;
-}
-
-.type-select:checked + label {
+.type-select:checked+label {
   border: 1px solid hsla(0, 17%, 52%, 0.9);
   box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.418);
 }
-
 
 .filter-label {
   @apply block font-semibold rounded mt-1 px-2 cursor-pointer;
 }
 
-/* .filter-label:hover {
-  border: 1px solid hsla(0, 17%, 52%, 0.462);
-} */
+/* Object Grid */
+.grid-item {
+  animation: slide-down 0.25s ease-in-out;
+}
 
 .grid-item:hover {
   box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.418);
+}
+
+/* Object information modal */
+.modal {
+  transition: opacity 0.25s ease;
+}
+
+.modal-active {
+  overflow-x: hidden;
+}
+
+.modal-content {
+  max-height: calc(100vh - 100px);
+}
+
+/* Object cards */
+.card-main {
+  @apply bg-red-800 rounded-lg overflow-hidden m-4 mb-6 shadow-md;
 }
 
 .card-main img {
   filter: opacity(0.75);
 }
 
-.modal {
-  transition: opacity 0.25s ease;
-}
-
-.modal-content {
-  max-height: calc(100vh - 210px);
-}
-
-.card-main {
-  @apply bg-red-800 rounded-lg overflow-hidden m-4 mb-6 shadow-md;
-}
-
 .card-data-top {
-  @apply inline-block bg-red-700 text-xs px-2 -ml-1 rounded-full uppercase 
-         font-semibold tracking-wide shadow;
+  @apply inline-block bg-red-700 text-xs px-2 -ml-1 rounded-full uppercase font-semibold tracking-wide shadow;
 }
 
 .card-data-main {
@@ -65,8 +62,12 @@ body.modal-active {
 }
 
 .card-data-bottom {
-  @apply inline-block bg-red-900 rounded-full px-2 py-1 text-xs font-bold 
-       text-red-300 mt-2 mr-2 leading-snug tracking-tight shadow;
+  @apply inline-block bg-red-900 rounded-full px-2 py-1 text-xs font-bold text-red-300 mt-2 mr-2 leading-snug tracking-tight shadow;
+}
+
+/* Scroll-top FAB */
+#go-top {
+  animation: slide-down 0.2s ease-in-out;
 }
 
 .btn-top {
@@ -86,38 +87,27 @@ body.modal-active {
 }
 
 .arrow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 18px;
-      height: 18px;
-      margin-left: -9px;
-      margin-top: -5px;
-      cursor: pointer;
-    }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  margin-top: -5px;
+  cursor: pointer;
+}
 
 .up:hover polyline,
 .up:focus polyline {
-stroke-width: 15;
+  stroke-width: 15;
 }
 
 .up:active polyline {
-stroke-width: 15;
-transition: all 100ms ease-in-out;
+  stroke-width: 15;
+  transition: all 100ms ease-in-out;
 }
 
-.fadein{
-  display: inline-block;
-  opacity: 1;
-  transition: visibility 0s linear 0s, opacity 100;
-}
-
-.fadeout {
-  display: none;
-  /* opacity: 0; */
-  /* transition: opacity 0.2s linear; */
-}
-
+/* Animations */
 @keyframes slide-down {
   0% {
     opacity: 0;
@@ -130,4 +120,5 @@ transition: all 100ms ease-in-out;
   }
 }
 
+/* Import tailwind utilities last */
 @tailwind utilities;
