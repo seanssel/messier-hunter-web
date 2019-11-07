@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "css/style.css",
-    "revision": "d2d86621fddcd60e073a88dd9edf20d1"
+    "revision": "cb0c6220a0dcc2e8e5f6a68a9c25bda9"
   },
   {
     "url": "fonts/noto-sans-v9-latin-regular.woff",
@@ -502,16 +502,8 @@ self.__precacheManifest = [
     "revision": "a4f94e4ecd8bd9e7e7dd6601b0b30daf"
   },
   {
-    "url": "js/jquery-3.4.1.min.js",
-    "revision": "220afd743d9e9643852e31a135a9f3ae"
-  },
-  {
-    "url": "js/lazyload.js",
-    "revision": "60669862b7c39ecb3283b1faa9563a07"
-  },
-  {
     "url": "js/main.js",
-    "revision": "a0017d780ec4e24446a5bb43cce63807"
+    "revision": "77ab067036259f5d0a3dacba23ad1ac4"
   },
   {
     "url": "manifest.json",

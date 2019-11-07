@@ -1,8 +1,7 @@
 "use strict";
 
 const TOP_OFFSET = 400; // vertical pixel offset for scroll-to-top button fade
-
-let currObject = null;
+let currObject = null; // currently active messier object (for modal)
 
 /**
  * Toggle information modal on object selection

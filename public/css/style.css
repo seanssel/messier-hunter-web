@@ -484,17 +484,14 @@ img {
   src: url("../fonts/noto-sans-v9-latin-regular.woff")
 }
 
+/* Object filter buttons */
+
 #nav-menu li {
   -webkit-animation: slide-down 0.2s ease-in-out;
           animation: slide-down 0.2s ease-in-out;
 }
 
-.grid-item {
-  -webkit-animation: slide-down 0.4s ease-in-out;
-          animation: slide-down 0.4s ease-in-out;
-}
-
-.type-select:checked + label {
+.type-select:checked+label {
   border: 1px solid hsla(0, 17%, 52%, 0.9);
   box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.418);
 }
@@ -509,26 +506,28 @@ img {
   cursor: pointer;
 }
 
-/* .filter-label:hover {
-  border: 1px solid hsla(0, 17%, 52%, 0.462);
-} */
+/* Object Grid */
+
+.grid-item {
+  -webkit-animation: slide-down 0.25s ease-in-out;
+          animation: slide-down 0.25s ease-in-out;
+}
 
 .grid-item:hover {
   box-shadow: 0 4px 4px hsla(0, 0%, 0%, 0.418);
 }
 
-.card-main img {
-  -webkit-filter: opacity(0.75);
-          filter: opacity(0.75);
-}
+/* Object information modal */
 
 .modal {
   transition: opacity 0.25s ease;
 }
 
 .modal-content {
-  max-height: calc(100vh - 210px);
+  max-height: calc(100vh - 100px);
 }
+
+/* Object cards */
 
 .card-main {
   background-color: #4c2122;
@@ -537,6 +536,11 @@ img {
   margin: 1rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-main img {
+  -webkit-filter: opacity(0.75);
+          filter: opacity(0.75);
 }
 
 .card-data-top {
@@ -576,6 +580,13 @@ img {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
+/* Scroll-top FAB */
+
+#go-top {
+  -webkit-animation: slide-down 0.2s ease-in-out;
+          animation: slide-down 0.2s ease-in-out;
+}
+
 .btn-top {
   background: #792d2da4;
   position: fixed;
@@ -613,6 +624,8 @@ img {
   transition: all 100ms ease-in-out;
 }
 
+/* Animations */
+
 @-webkit-keyframes slide-down {
   0% {
     opacity: 0;
@@ -636,6 +649,8 @@ img {
     transform: translateY(0);
   }
 }
+
+/* Import tailwind utilities last */
 
 .bg-black {
   background-color: #000;
@@ -727,11 +742,6 @@ img {
 
 .leading-tight {
   line-height: 1.25;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .ml-2 {
@@ -953,8 +963,8 @@ img {
   width: 1.5rem;
 }
 
-.w-11\/12 {
-  width: 91.666667%;
+.w-9\/12 {
+  width: 75%;
 }
 
 .w-full {
@@ -1023,10 +1033,6 @@ img {
 }
 
 @media (min-width: 768px) {
-
-  .md\:max-w-md {
-    max-width: 28rem;
-  }
 
   .md\:grid-columns-4 {
     grid-template-columns: repeat(4, 1fr);
