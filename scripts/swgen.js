@@ -4,7 +4,7 @@ const workboxBuild = require("workbox-build");
 workboxBuild.generateSW({
   globDirectory: "public",
   globPatterns: ["**/*.{html,css,woff,ico,jpg,png,js,json}"],
-  swDest: "public/sw.js",
+  swDest: "src/js/sw.js",
    templatedURLs: {
     '/': [
       '../src/views/index.hbs',

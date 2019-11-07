@@ -597,7 +597,7 @@ img {
   height: 48px;
   margin: 0;
   padding: 0 1.2em;
-  border: 1px solid #d1a2a2b6;
+  border: 1px solid hsla(0, 17%, 52%, 0.9);
   font-weight: bold;
   text-transform: capitalize;
   line-height: 44px;
@@ -818,10 +818,6 @@ img {
   padding-top: 1rem;
 }
 
-.pb-4 {
-  padding-bottom: 1rem;
-}
-
 .pt-20 {
   padding-top: 5rem;
 }
@@ -963,8 +959,8 @@ img {
   width: 1.5rem;
 }
 
-.w-9\/12 {
-  width: 75%;
+.w-10\/12 {
+  width: 83.333333%;
 }
 
 .w-full {
