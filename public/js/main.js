@@ -1,6 +1,13 @@
 "use strict";
 
-const TOP_OFFSET = 400; // vertical pixel offset for scroll-to-top button fade
+/* Global element references */
+const navMenu = document.getElementById("nav-menu");
+const goTop = document.getElementById("go-top");
+const modalName = document.querySelector(".modal-name");
+const modalExtract = document.querySelector(".modal-extract");
+const modalOverlay = document.querySelector(".modal-overlay");
+
+const topOffset = 400; // vertical pixel offset for scroll-to-top button fade
 let currObject = null; // currently active messier object (for modal)
 
 /**
@@ -9,8 +16,6 @@ let currObject = null; // currently active messier object (for modal)
 function toggleModal() {
   const modal = document.querySelector(".modal");
   if (currObject) {
-    const modalName = document.querySelector(".modal-name");
-    const modalExtract = document.querySelector(".modal-extract");
     modalName.textContent = extracts[currObject].to;
     modalExtract.textContent = extracts[currObject].extract;
   }
@@ -39,8 +44,6 @@ function init() {
 
   // UI initialization
   document.addEventListener("DOMContentLoaded", function() {
-    const navMenu = document.getElementById("nav-menu");
-    const goTop = document.getElementById("go-top");
 
     // Toggle navbar dropdown menu
     document.getElementById("menu-button").addEventListener("click", function() {
@@ -72,13 +75,10 @@ function init() {
       });
     });
 
-    const overlay = document.querySelector(".modal-overlay");
-    overlay.addEventListener("click", toggleModal);
-
-    let closemodal = document.querySelectorAll(".modal-close");
-    for (let i = 0; i < closemodal.length; i++) {
-      closemodal[i].addEventListener("click", toggleModal);
-    }
+    modalOverlay.addEventListener("click", toggleModal);
+    document.querySelectorAll(".modal-close").forEach(e => {
+      e.addEventListener("click", toggleModal);
+    });
 
     // Handle keypresses to close modals
     document.onkeydown = function(evt) {
@@ -96,10 +96,10 @@ function init() {
 
     // Scroll to top button behavior
     window.onscroll = () => {
-      if (window.scrollY >= TOP_OFFSET && goTop.classList.contains("hidden")) {
+      if (window.scrollY >= topOffset && goTop.classList.contains("hidden")) {
         goTop.classList.toggle("hidden");
         goTop.classList.toggle("inline-block");
-      } else if (window.scrollY < TOP_OFFSET) {
+      } else if (window.scrollY < topOffset) {
         goTop.classList.add("hidden");
       }
     };
