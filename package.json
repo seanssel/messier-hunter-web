@@ -1,39 +1,39 @@
 {
-  "name": "messier-hunter",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "css": "postcss src/css/tailwind.css -o public/css/style.css",
-    "bundle": "browserify public/js/main.js -o public/js/bundle.js",
-    "workbox": "node scripts/swgen.js",
-    "babel": "babel src/js -d public/js",
-    "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www"
-  },
-  "dependencies": {
-    "autoprefixer": "^9.6.1",
-    "compression": "^1.7.4",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "express-inline-css": "^1.3.0",
-    "express-minify": "^1.0.0",
-    "hbs": "^4.0.5",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "numeral": "^2.0.6"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.7.0",
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "@fullhuman/postcss-purgecss": "^1.3.0",
-    "browserify": "^16.5.0",
-    "nodemon": "^1.19.2",
-    "postcss-cli": "^6.1.3",
-    "tailwindcss": "^1.1.2",
-    "tailwindcss-grid": "^1.2.1",
-    "uglify-es": "^3.3.9",
-    "workbox-build": "^4.3.1"
-  }
+    "name": "messier-hunter",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "css": "postcss src/css/tailwind.css -o public/css/style.css",
+        "bundle": "browserify public/js/main.js -o public/js/bundle.js",
+        "workbox": "node scripts/swgen.js",
+        "babel": "babel src -d public",
+        "start": "node ./bin/www",
+        "devstart": "nodemon ./bin/www"
+    },
+    "dependencies": {
+        "autoprefixer": "^9.6.1",
+        "compression": "^1.7.4",
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "express": "~4.16.1",
+        "express-inline-css": "^1.3.0",
+        "express-minify": "^1.0.0",
+        "hbs": "^4.0.5",
+        "http-errors": "~1.6.3",
+        "morgan": "~1.9.1",
+        "numeral": "^2.0.6"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.7.0",
+        "@babel/core": "^7.7.2",
+        "@babel/preset-env": "^7.7.1",
+        "@fullhuman/postcss-purgecss": "^1.3.0",
+        "browserify": "^16.5.0",
+        "nodemon": "^1.19.2",
+        "postcss-cli": "^6.1.3",
+        "tailwindcss": "^1.1.2",
+        "tailwindcss-grid": "^1.2.1",
+        "uglify-es": "^3.3.9",
+        "workbox-build": "^4.3.1"
+    }
 }
